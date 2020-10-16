@@ -59,7 +59,9 @@ class App extends Component {
       <div className="App">
         <Header rockets={this.state.rockets} changeRocket={this.changeRocket} />
         <Main rocket={this.state.rocket} />
-        <Features />
+        {this.state.rocketFeatures && (
+          <Features {...this.state.rocketFeatures} />
+        )}
         {/* <Details /> */}
         <Footer />
       </div>
