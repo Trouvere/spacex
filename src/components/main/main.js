@@ -1,11 +1,18 @@
 import React from "react";
-// import logo from "../.././img/logo.svg";
+
 import "./main.css";
 
-const Main = () => {
+const video = {
+  "Falcon 1": "moon",
+  "Falcon 9": "earth",
+  "Falcon Heavy": "mars",
+  other: "space",
+};
+
+const Main = ({ rocket }) => {
   return (
     <section className="main">
-      <h1 className="title">Falcon 1</h1>
+      <h1 className="title">{rocket}</h1>
 
       <div className="video-container">
         <video
@@ -13,8 +20,10 @@ const Main = () => {
           autoPlay
           loop
           muted
-          src="./video/moon.mp4"
-        ></video>
+          src={`./video/${
+            video.hasOwnProperty(rocket) ? video[rocket] : video.other
+          }.mp4`}
+        />
       </div>
     </section>
   );
