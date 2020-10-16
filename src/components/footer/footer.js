@@ -10,7 +10,7 @@ const Footer = () => {
         <ul className="list">
           <li className="item">
             <a
-              href="#"
+              href="/"
               rel="noopener noreferrer"
               target="_blank"
               className="item-link"
@@ -20,7 +20,7 @@ const Footer = () => {
           </li>
           <li className="item">
             <a
-              href="#"
+              href="/"
               rel="noopener noreferrer"
               target="_blank"
               className="item-link"
@@ -30,7 +30,7 @@ const Footer = () => {
           </li>
           <li className="item">
             <a
-              href="#"
+              href="/"
               rel="noopener noreferrer"
               target="_blank"
               className="item-link"
@@ -40,7 +40,7 @@ const Footer = () => {
           </li>
           <li className="item">
             <a
-              href="#"
+              href="/"
               rel="noopener noreferrer"
               target="_blank"
               className="item-link"
