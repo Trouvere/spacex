@@ -75,11 +75,11 @@ class App extends Component {
             )}
           </Route>
           <Route path="/calendar">
-            <Main />
+            {/* <Main /> */}
             <Calendar />
           </Route>
           <Route path="/details">
-            <Main />
+            {/* <Main /> */}
             <Details />
           </Route>
           {/* <Details /> */}
