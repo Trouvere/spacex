@@ -1,6 +1,9 @@
 import React, { Component } from "react";
+import { BrowserRouter, Route } from "react-router-dom";
+
 import "./css/style.css";
 import Header from "./components/header";
+import Home from "./components/Home/Home";
 import Main from "./components/main";
 import Features from "./components/features";
 import Footer from "./components/footer";
@@ -57,13 +60,31 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Header rockets={this.state.rockets} changeRocket={this.changeRocket} />
-        <Main rocket={this.state.rocket} />
-        {this.state.rocketFeatures && (
-          <Features {...this.state.rocketFeatures} />
-        )}
-        {/* <Details /> */}
-        {this.state.company && <Footer {...this.state.company} />}
+        <BrowserRouter>
+          <Header
+            rockets={this.state.rockets}
+            changeRocket={this.changeRocket}
+          />
+          <Route exact path="/">
+            {this.state.company && <Home {...this.state} />}
+          </Route>
+          <Route path="/rocket">
+            <Main rocket={this.state.rocket} />
+            {this.state.rocketFeatures && (
+              <Features {...this.state.rocketFeatures} />
+            )}
+          </Route>
+          <Route path="/calendar">
+            <Main />
+            <Calendar />
+          </Route>
+          <Route path="/details">
+            <Main />
+            <Details />
+          </Route>
+          {/* <Details /> */}
+          {this.state.company && <Footer {...this.state.company} />}
+        </BrowserRouter>
       </div>
     );
   }

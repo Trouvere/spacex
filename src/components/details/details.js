@@ -3,21 +3,21 @@ import React from "react";
 import "./details.css";
 
 const Details = () => (
-  <main class="details">
-    <div class="container">
-      <div class="details-row">
-        <div class="details-image">
+  <main className="details">
+    <div className="container">
+      <div className="details-row">
+        <div className="details-image">
           <img src="https://images2.imgbox.com/3c/0e/T8iJcSN3_o.png" alt="" />
         </div>
-        <div class="details-content">
-          <p class="details-description">
+        <div className="details-content">
+          <p className="details-description">
             Engine failure at 33 seconds and loss of vehicle
           </p>
         </div>
       </div>
       <div>
         <iframe
-          class="details-youtube"
+          className="details-youtube"
           width="560"
           height="315"
           src="https://www.youtube.com/embed/dLQ2tZEH6G0"
@@ -27,7 +27,7 @@ const Details = () => (
         ></iframe>
       </div>
     </div>
-    <a href="calendar.html" class="button button-back">
+    <a href="calendar.html" className="button button-back">
       go back
     </a>
   </main>
