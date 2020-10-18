@@ -5,6 +5,7 @@ import Main from "../main";
 
 import { useHistory } from "react-router-dom";
 import useLaunches from "../useLaunches/useLaunches";
+import Youtube from "react-youtube";
 
 const Details = (props) => {
   // console.log(props);
@@ -21,6 +22,8 @@ const Details = (props) => {
   const history = useHistory();
 
   if (!launch) return null;
+
+  const videoId = launch.links.webcast.split("=")[1];
   return (
     <>
       <Main name={launch.name} />
@@ -44,6 +47,7 @@ const Details = (props) => {
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowfullscreen
             ></iframe> */}
+            <Youtube className="details-youtube" videoId={videoId} />
           </div>
         </div>
         <a onClick={history.goBack} className="button button-back">
