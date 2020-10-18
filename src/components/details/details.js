@@ -1,33 +1,41 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 import "./details.css";
 import Main from "../main";
 
 import { useHistory } from "react-router-dom";
+import useLaunches from "../useLaunches/useLaunches";
 
-const Details = () => {
+const Details = (props) => {
+  // console.log(props);
+  const id = props.match.params.id;
+  // console.log(id);
+  const [launch, setLaunch] = useState(null);
+
+  const { getLaunch } = useLaunches();
+  useEffect(() => {
+    setLaunch(getLaunch(id));
+  }, [getLaunch]);
+  // console.log(launch);
+
   const history = useHistory();
 
+  if (!launch) return null;
   return (
     <>
-      <Main />(
+      <Main name={launch.name} />
       <main className="details">
         <div className="container">
           <div className="details-row">
             <div className="details-image">
-              <img
-                src="https://images2.imgbox.com/3c/0e/T8iJcSN3_o.png"
-                alt=""
-              />
+              <img src={launch.links.patch.small} alt="" />
             </div>
             <div className="details-content">
-              <p className="details-description">
-                Engine failure at 33 seconds and loss of vehicle
-              </p>
+              <p className="details-description">{launch.details}</p>
             </div>
           </div>
           <div>
-            <iframe
+            {/* <iframe
               className="details-youtube"
               width="560"
               height="315"
@@ -35,7 +43,7 @@ const Details = () => {
               frameborder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowfullscreen
-            ></iframe>
+            ></iframe> */}
           </div>
         </div>
         <a onClick={history.goBack} className="button button-back">
