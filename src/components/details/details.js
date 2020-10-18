@@ -3,7 +3,11 @@ import React from "react";
 import "./details.css";
 import Main from "../main";
 
+import { useHistory } from "react-router-dom";
+
 const Details = () => {
+  const history = useHistory();
+
   return (
     <>
       <Main />(
@@ -34,7 +38,7 @@ const Details = () => {
             ></iframe>
           </div>
         </div>
-        <a href="calendar.html" className="button button-back">
+        <a onClick={history.goBack} className="button button-back">
           go back
         </a>
       </main>
