@@ -65,18 +65,23 @@ class App extends Component {
             rockets={this.state.rockets}
             changeRocket={this.changeRocket}
           />
-          <Route exact path="/">
-            {this.state.company && <Home {...this.state} />}
-          </Route>
-          <Route path="/rocket">
-            <Main rocket={this.state.rocket} />
-            {this.state.rocketFeatures && (
-              <Features {...this.state.rocketFeatures} />
-            )}
-          </Route>
+          <Route
+            exact
+            path="/"
+            render={() =>
+              this.state.company && <Home company={this.state.company} />
+            }
+          />
+          <Route
+            path="/rocket"
+            render={() =>
+              this.state.rocketFeatures && (
+                <Features {...this.state.rocketFeatures} />
+              )
+            }
+          />
           <Route path="/calendar" component={Calendar} />
           <Route path="/details/:id" component={Details} />
-
           {this.state.company && <Footer {...this.state.company} />}
         </BrowserRouter>
       </div>
